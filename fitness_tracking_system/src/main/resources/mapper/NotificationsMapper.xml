@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fts.fts.fitness_tracking_system.mapper.NotificationsMapper">
+
+    <resultMap id="BaseResultMap" type="com.fts.fts.fitness_tracking_system.pojo.Notifications">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="message" column="message" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="notificationTime" column="notification_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,message,
+        notification_time
+    </sql>
+
+    <insert id="saveBatch" parameterType="java.util.List">
+        INSERT INTO notifications (user_id,message,type,notification_time)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.userId},#{item.message},#{item.type},#{item.notificationTime})
+        </foreach>
+    </insert>
+</mapper>

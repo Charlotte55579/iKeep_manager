@@ -1,0 +1,59 @@
+server:
+  port: 9090
+
+#Spring配置
+spring:
+  #数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/fitness_tracking_system?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+  profiles:
+    active: dev
+  #文件上传
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+    #文件上传大小
+    servlet:
+      multipart:
+        max-file-size: 10MB
+        max-request-size: 10MB
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com/fts/fts/fitness_tracking_system/pojo
+  configuration:
+    map-underscore-to-camel-case: true
+#mybatis-plus配置
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign_id
+      logic-delete-field: flag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+#redis配置
+redis:
+  host: 127.0.0.1
+  port: 6379
+  database: 0
+  pool:
+    max-active: 8
+    max-idle: 8
+    min-idle: 0
+    max-wait: -1
+
+

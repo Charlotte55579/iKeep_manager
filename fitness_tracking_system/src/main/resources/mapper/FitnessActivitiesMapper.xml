@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fts.fts.fitness_tracking_system.mapper.FitnessActivitiesMapper">
+
+    <resultMap id="BaseResultMap" type="com.fts.fts.fitness_tracking_system.pojo.FitnessActivities">
+            <id property="activityId" column="activity_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="activityType" column="activity_type" jdbcType="VARCHAR"/>
+            <result property="activityDuration" column="activity_duration" jdbcType="TIME"/>
+            <result property="caloriesBurned" column="calories_burned" jdbcType="DOUBLE"/>
+            <result property="heartRate" column="heart_rate" jdbcType="INTEGER"/>
+            <result property="activityDate" column="activity_date" jdbcType="DATE"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        activity_id,user_id,activity_type,
+        activity_duration,calories_burned,heart_rate,
+        activity_date
+    </sql>
+</mapper>
