@@ -6,17 +6,19 @@
 
     <resultMap id="BaseResultMap" type="com.fts.fts.fitness_tracking_system.pojo.Users">
             <id property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
             <result property="username" column="username" jdbcType="VARCHAR"/>
             <result property="password" column="password" jdbcType="VARCHAR"/>
             <result property="email" column="email" jdbcType="VARCHAR"/>
             <result property="weight" column="weight" jdbcType="DECIMAL"/>
+            <result property="height" column="height" jdbcType="DECIMAL"/>
             <result property="age" column="age" jdbcType="INTEGER"/>
             <result property="fitnessGoal" column="fitness_goal" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        user_id,username,password,
-        email,weight,age,
+        user_id,avatar,username,password,
+        email,weight,height,age,
         fitness_goal
     </sql>
 </mapper>
